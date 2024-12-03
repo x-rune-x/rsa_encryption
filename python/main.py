@@ -12,7 +12,7 @@ def create_keys(p: int, q: int):
     e = find_e(n, r) # A number between 2 and r that is coprime with both n and r. This can often be defaulted to 3, 5 or commonly 65537 for large primes.
     d = pow(e, -1, r) # Multiple of e that has a remainder of 1 when divided by r. In this case we will go with the first multiple that satisfies these conditions.
 
-    if d == e: # keys won't be secure if d and e are the same (happens if p, q are 3, 7).
+    if d == e: # keys won't be secure if d and e are the same.
         d += r # To resolve this add any multiple of r to d since d will always be one substracted from a multiple of r.
 
     public_key = Key(e, n)
@@ -20,12 +20,12 @@ def create_keys(p: int, q: int):
 
     return (public_key, private_key)
 
- 
-def coprime(a, b):  
+
+def coprime(a, b):
     if math.gcd(a, b) == 1:
         return True
 
-    return False 
+    return False
 
 def find_e(n: int, r: int):
     for i in range(2, r + 1):
@@ -52,4 +52,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+      
