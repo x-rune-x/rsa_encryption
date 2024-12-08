@@ -7,7 +7,7 @@ fn main() {
     println!("n = {}", n);
     println!("r = {}", r);
 
-    let e = find_e(r, n);
+    let e = find_e(r);
     let d = find_d(r, e);
 
     println!("e = {}", e);
@@ -35,9 +35,9 @@ fn coprime(a: u32, b: u32) -> bool {
     gcd(a, b) == 1
 }
 
-fn find_e(r: u32, n: u32) -> u32 {
+fn find_e(r: u32) -> u32 {
     for i in 2..r + 1 {
-        if coprime(i, r) && coprime(i, n) {
+        if coprime(i, r) {
             return i;
         }
     }
